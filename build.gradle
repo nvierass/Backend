@@ -1,0 +1,34 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id "org.sonarqube" version "3.3"
+}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "nvierass_TBD_Lab_2"
+    property "sonar.organization", "nvierass"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
+}
+
+group = 'Mingeso'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation group: 'org.sql2o', name: 'sql2o', version: '1.6.0'
+	implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.1'
+}
+
+test {
+	useJUnitPlatform()
+}
