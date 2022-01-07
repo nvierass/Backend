@@ -12,6 +12,13 @@ sonarqube {
     property "sonar.host.url", "https://sonarcloud.io"
   }
 }
+sonarqube {
+  properties {
+    property "sonar.projectKey", "nvierass_Backend"
+    property "sonar.organization", "nvierass"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
+}
 
 group = 'Mingeso'
 version = '0.0.1-SNAPSHOT'
@@ -27,6 +34,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation group: 'org.sql2o', name: 'sql2o', version: '1.6.0'
 	implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.1'
+	testImplementation group: 'junit', name: 'junit', version: '4.13.2'
 }
 
 test {

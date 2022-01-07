@@ -10,6 +10,7 @@ public class Producto {
     private String categoria;
     private int precio;
 
+
     public int getCodigoProducto(){
         return this.codigoProducto;
     }
@@ -40,5 +41,27 @@ public class Producto {
     }
     public void setPrecio(int precio){
         this.precio = precio;
+    }
+
+    public String getPrecioAsString(){
+        return Integer.toString(this.precio);
+    }
+
+    public Boolean isImportado(){
+        if (this.categoria.equals("Importado")){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public Boolean isNacional(){
+        if (this.categoria.equals("Nacional")){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
