@@ -1,6 +1,11 @@
 pipeline {
 	agent any
 	stages {
+		stage('Preparacion') {
+			steps {
+				echo "Nueva instrucción"
+			}
+		}
 		stage('Build') {
 			steps {
 				echo "Prueba JF y Weebhook build"
