@@ -1,4 +1,5 @@
 package test_automatizadas;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -34,7 +35,6 @@ public class FormularioTest {
 		boton.click();
 
 	}
-	
 	@After
 	public void setout() {
 		driver.quit();
