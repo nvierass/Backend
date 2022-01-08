@@ -1,12 +1,12 @@
 pipeline {
 	agent any
 	stages {
-		stage('Preparacion') {
+		stage('Retrieve') {
 			steps {
-				echo "Nueva instrucción"
+				git 'https://github.com/nvierass/Backend.git'
 			}
 		}
-		stage('Build') {
+		stage('Analisis') {
 			steps {
 				echo "Prueba JF y Weebhook build"
 			}
@@ -16,10 +16,15 @@ pipeline {
 				echo "Prueba JF y Weebhook test"
 			}
 		}
-		stage('Deploy') {
-			steps {
-				echo "Prueba JF y Weebhook deploy"
+		stage('Image creation'){
+			steps{
+				script{
+					sh 'docker login -u nvierass -p Grupo4Mingeso'
+					sh 'docker build . -t nvierass/mingeso:backend-mingeso-g4'
+					sh 'docker push nvierass/mingeso:backend-mingeso-g4'
+				}
 			}
+			
 		}
 	}
 }
