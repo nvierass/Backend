@@ -7,6 +7,5 @@ COPY . ./
 ENV PATH /app/jdk/.bin:$PATH
 
 COPY build.gradle ./
-
-CMD ["./gradlew","bootRun"]
+RUN gradle build
 EXPOSE 8080
