@@ -1,11 +1,5 @@
-FROM gradle:7.3.3-jdk17-alpine AS build
-
-WORKDIR /App
-
-COPY . ./
-
-ENV PATH /app/jdk/.bin:$PATH
-
-COPY build.gradle ./
-RUN gradle build
-EXPOSE 8080
+FROM openjdk:17-jdk-alpine
+VOLUME /tmp
+ARG JAR_FILE
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
