@@ -11,9 +11,12 @@ pipeline {
 				echo "Prueba JF y Weebhook build"
 			}
 		}
-		stage('Test') {
-			steps {
-				echo "Prueba JF y Weebhook test"
+		stage('Image creation'){
+			steps{
+				script{
+					sh 'docker build . -t nvierass/mingeso:backend-mingeso-g4'
+					sh 'docker push nvierass/mingeso:backend-mingeso-g4'
+				}
 			}
 		}
 	}
