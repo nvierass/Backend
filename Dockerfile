@@ -2,7 +2,7 @@
 # ref: https://docs.docker.com/develop/develop-images/multistage-build/
     
 # temp container to build using gradle
-FROM gradle:5.3.0-jdk-alpine AS TEMP_BUILD_IMAGE
+FROM gradle:7.3.3-jdk-alpine AS TEMP_BUILD_IMAGE
 ENV APP_HOME=/usr/app/
 WORKDIR $APP_HOME
 COPY build.gradle settings.gradle $APP_HOME
@@ -17,7 +17,7 @@ COPY . .
 RUN gradle clean build
     
 # actual container
-FROM adoptopenjdk/openjdk11:alpine-jre
+FROM adoptopenjdk/openjdk17:alpine-jre
 ENV ARTIFACT_NAME=pokerstats-0.0.1-SNAPSHOT.jar
 ENV APP_HOME=/usr/app/
     
