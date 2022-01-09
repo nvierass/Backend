@@ -18,7 +18,7 @@ RUN gradle clean build
     
 # actual container
 FROM openjdk:17-jdk-alpine
-ENV ARTIFACT_NAME=pokerstats-0.0.1-SNAPSHOT.jar
+ENV ARTIFACT_NAME=Evaluacion2-0.0.1-SNAPSHOT.jar
 ENV APP_HOME=/usr/app/
     
 WORKDIR $APP_HOME
