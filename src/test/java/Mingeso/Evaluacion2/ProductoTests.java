@@ -1,6 +1,7 @@
 package Mingeso.Evaluacion2;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import Mingeso.Evaluacion2.Models.Producto;
 
@@ -8,6 +9,7 @@ public class ProductoTests{
 
     Producto dummy;
 
+    @DisplayName("Test de verificación de precio como String")
     @Test
     public void precioAsString(){
         this.dummy = new Producto();
@@ -17,6 +19,7 @@ public class ProductoTests{
         assertEquals(expectedValue, actualValue);
     }
 
+    @DisplayName("Test de verificación de setCategoria, para producto Importado")
     @Test
     public void categoriaImportadoTest(){
         this.dummy = new Producto();
@@ -26,6 +29,7 @@ public class ProductoTests{
         assertEquals(expectedValue, actualValue);
     }
 
+    @DisplayName("Test de verificación de setCategoria, para producto Nacional")
     @Test
     public void categoriaNacionalTest(){
         this.dummy = new Producto();
