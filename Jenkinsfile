@@ -3,7 +3,7 @@ pipeline {
 	stages {
 		stage ('Retrieve'){
 			steps {
-				git 'https://github.com/nvierass/Backend.git'
+				git branch: 'main',  url: 'https://github.com/nvierass/Backend'
 			}
 		}
 		stage('Analisis') {
