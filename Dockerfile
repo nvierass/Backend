@@ -1,5 +1,4 @@
-FROM 7.3.3-jdk17-alpine
-
+FROM gradle:7.3.3-alpine
 WORKDIR /App
 
 COPY . ./
