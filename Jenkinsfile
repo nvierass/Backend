@@ -16,11 +16,5 @@ pipeline {
 				echo "Prueba JF y Weebhook test"
 			}
 		}
-		stage('Image creation'){
-			steps{
-
-			}
-			
-		}
 	}
 }
