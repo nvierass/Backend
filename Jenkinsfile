@@ -9,6 +9,7 @@ pipeline {
 		stage ('JUnit testing'){
 			steps{
 				withGradle {
+					sh 'chmod +x gradlew'
 					sh './gradlew test'
 					junit 'test-results.xml'
 				}
@@ -17,6 +18,7 @@ pipeline {
 		stage ('Sonarqube analisis'){
 			steps {
 				withGradle {
+					sh 'chmod +x gradlew'
 					sh './gradlew sonarqube'
 				}
 			}
