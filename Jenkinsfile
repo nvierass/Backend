@@ -10,7 +10,7 @@ pipeline {
 			steps{
 				withGradle {
 					sh 'chmod +x gradlew'
-					sh './gradlew test'
+					sh './gradlew cleanTest test'
 					junit  '**/test-results/test/*.xml'
 				}
 			}
