@@ -6,6 +6,17 @@ pipeline {
 				git branch: 'main',  url: 'https://github.com/nvierass/Backend'
 			}
 		}
+		stage ('JUnit testing'){
+			steps{
+				sh './gradlew test'
+				junit 'test-results.xml'
+			}
+		}
+		stage ('Sonarqube analisis'){
+			steps{
+				sh './gradlew sonarqube'
+			}
+		}
 		stage('Analisis') {
 			steps {
 				echo "Prueba JF y Weebhook build"
