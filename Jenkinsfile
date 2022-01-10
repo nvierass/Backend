@@ -7,14 +7,18 @@ pipeline {
 			}
 		}
 		stage ('JUnit testing'){
-			withGradle {
-				sh './gradlew test'
-				junit 'test-results.xml'
+			steps{
+				withGradle {
+					sh './gradlew test'
+					junit 'test-results.xml'
+				}
 			}
 		}
 		stage ('Sonarqube analisis'){
-			withGradle {
-				sh './gradlew sonarqube'
+			steps {
+				withGradle {
+					sh './gradlew sonarqube'
+				}
 			}
 		}
 		stage('Image creation'){
