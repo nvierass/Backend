@@ -17,10 +17,11 @@ pipeline {
 		}
 		stage ('Sonarqube analisis'){
 			steps {
-				withGradle {
-					sh 'chmod +x gradlew'
-					sh './gradlew sonarqube'
-
+				withSonarQubeEnv('SonarQube'){
+					withGradle {
+						sh 'chmod +x gradlew'
+						sh './gradlew sonarqube'
+					}
 				}
 			}
 		}
