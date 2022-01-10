@@ -7,19 +7,14 @@ pipeline {
 			}
 		}
 		stage ('JUnit testing'){
-			steps{
-				sh 'gradle test'
+			withGradle {
+				sh './gradlew test'
 				junit 'test-results.xml'
 			}
 		}
 		stage ('Sonarqube analisis'){
-			steps{
-				sh 'gradle sonarqube'
-			}
-		}
-		stage('Analisis') {
-			steps {
-				echo "Prueba JF y Weebhook build"
+			withGradle {
+				sh './gradlew sonarqube'
 			}
 		}
 		stage('Image creation'){
