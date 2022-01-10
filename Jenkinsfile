@@ -11,7 +11,7 @@ pipeline {
 				withGradle {
 					sh 'chmod +x gradlew'
 					sh './gradlew test'
-					junit '\build\test-results\test\TEST-Mingeso.Evaluacion2.ProductoTests.xml'
+					junit 'TEST-Mingeso.Evaluacion2.ProductoTests.xml'
 				}
 			}
 		}
