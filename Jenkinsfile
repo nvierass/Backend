@@ -9,7 +9,7 @@ pipeline {
 		stage ('JUnit testing'){
 			steps{
 				withGradle {
-					sh 'gradle test'
+					sh './gradlew test'
 					junit 'test-results.xml'
 				}
 			}
@@ -17,7 +17,7 @@ pipeline {
 		stage ('Sonarqube analisis'){
 			steps {
 				withGradle {
-					sh 'gradle sonarqube'
+					sh './gradlew sonarqube'
 				}
 			}
 		}
