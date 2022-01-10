@@ -17,7 +17,7 @@ pipeline {
 		}
 		stage ('Sonarqube analisis'){
 			steps {
-				withSonarQubeEnv('SonarQube'){
+				withSonarQubeEnv(){
 					withGradle {
 						sh 'chmod +x gradlew'
 						sh './gradlew sonarqube'
