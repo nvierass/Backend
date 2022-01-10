@@ -8,13 +8,13 @@ pipeline {
 		}
 		stage ('JUnit testing'){
 			steps{
-				sh './gradlew test'
+				sh 'gradle test'
 				junit 'test-results.xml'
 			}
 		}
 		stage ('Sonarqube analisis'){
 			steps{
-				sh './gradlew sonarqube'
+				sh 'gradle sonarqube'
 			}
 		}
 		stage('Analisis') {
