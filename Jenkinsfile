@@ -11,7 +11,7 @@ pipeline {
 				withGradle {
 					sh 'chmod +x gradlew'
 					sh './gradlew test'
-					junit 'build\test-results\test\testTEST-Mingeso.Evaluacion2.ProductoTests.xml'
+					junit allowEmptyResults: true, test-results: **/test-results/test/*.xml'
 				}
 			}
 		}
