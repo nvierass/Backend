@@ -3,17 +3,32 @@ pipeline {
 	stages {
 		stage ('Retrieve'){
 			steps {
-				git 'https://github.com/nvierass/Backend.git'
+				git branch: 'main',  url: 'https://github.com/nvierass/Backend'
 			}
 		}
-		stage('Analisis') {
-			steps {
-				echo "Prueba JF y Weebhook build"
+		stage ('JUnit testing'){
+			steps{
+				withGradle {
+					sh 'chmod +x gradlew'
+					sh './gradlew cleanTest test'
+					junit  '**/test-results/test/*.xml'
+				}
 			}
 		}
-		stage('Test') {
+		stage ('Sonarqube analisis'){
 			steps {
-				echo "Prueba JF y Weebhook test"
+				withGradle {
+					sh 'chmod +x gradlew'
+					sh './gradlew sonarqube'
+				}
+			}
+		}
+		stage('Image creation'){
+			steps{
+				script{
+					sh 'docker build . -t nvierass/mingeso:backend-mingeso-g4'
+					sh 'docker push nvierass/mingeso:backend-mingeso-g4'
+				}
 			}
 		}
 	}
