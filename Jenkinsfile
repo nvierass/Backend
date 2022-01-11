@@ -11,8 +11,10 @@ pipeline {
 				withGradle {
 					sh 'chmod +x gradlew'
 					sh './gradlew cleanTest test'
-					junit  '**/test-results/test/*.xml'
 				}
+				withChecks('Results Tests') {
+		 			junit testResults: '**/test-results/test/*.xml', skipPublishingChecks: true
+	  			}
 			}
 		}
 		stage ('Sonarqube analisis'){
