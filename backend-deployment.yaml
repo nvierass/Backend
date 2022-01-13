@@ -16,7 +16,7 @@ spec:
       spec:
         containers:
           - name:backend
-            image:
+            image:benja5026/backendminikube
             imagePullPolicy:Always
             ports:
               - name: http
