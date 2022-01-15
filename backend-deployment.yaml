@@ -3,16 +3,16 @@ Kind: Deployment
 metadata:
  name: backend-deployment
  labels:
-  app:backend
+   app: backend
 spec:
  replicas: 1
  selector:
     matchLabebls:
-      app:backend
+      app: backend
  template:
   metadata:
    labels:
-    app:backend
+    app: backend
   spec:
    containers:
     - name: backend
@@ -21,4 +21,3 @@ spec:
       ports:
        - name: http
          containerPort: 32000
-
