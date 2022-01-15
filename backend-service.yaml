@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 Kind: Service
 metadata:
-	name: backend-service
-spec:
+ name: backend-service
+spec :
   type: Loadbalancer
   selector:
-    app:backend
+   app:backend
   ports:
-  - name:http
-    protocol:TCP
-    port:51000
-    targetPort:50001
-    nodePort:51002
+   - name:http
+     protocol:TCP
+     port:32000
+     targetPort:32000
+     nodePort:30000
