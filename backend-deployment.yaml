@@ -1,23 +1,24 @@
 apiVersion: apps/v1
 Kind: Deployment
 metadata:
-name: backend-deployment
+ name: backend-deployment
  labels:
   app:backend
 spec:
- replicas:1
-selector:
+ replicas: 1
+ selector:
     matchLabebls:
       app:backend
-    template:
-      metadata:
-        labels:
-          app:backend
-      spec:
-        containers:
-          - name:backend
-            image: nvierass/mingeso:backend-mingeso-g4
-            imagePullPolicy:Always
-            ports:
-              - name: http
-              containerPort:32000
+ template:
+  metadata:
+   labels:
+    app:backend
+  spec:
+   containers:
+    - name: backend
+      image: nvierass/mingeso:backend-mingeso-g4
+      imagePullPolicy: Always
+      ports:
+       - name: http
+         containerPort: 32000
+
