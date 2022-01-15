@@ -2,7 +2,7 @@ apiVersion: apps/v1
 Kind: Service
 metadata:
  name: backend-service
-spec:
+spec :
   type: Loadbalancer
   selector:
    app:backend
