@@ -1,14 +1,14 @@
-apiVersion: apps/v1
-Kind: Service
+apiVersion: v1
+kind: Service
 metadata:
- name: backend-service
-spec :
-  type: Loadbalancer
+  name: backend-service
+spec:
+  type: LoadBalancer
   selector:
-   app:backend
+    app: backend
   ports:
-   - name:http
-     protocol:TCP
-     port:32000
-     targetPort:32000
-     nodePort:30000
+   - name: http
+     protocol: TCP
+     port: 32000
+     targetPort: 32000
+     nodePort: 30000
