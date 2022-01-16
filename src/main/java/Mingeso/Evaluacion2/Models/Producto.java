@@ -48,20 +48,10 @@ public class Producto {
     }
 
     public Boolean isImportado(){
-        if (this.categoria.equals("Importado")){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return(this.categoria.equals("Importado"));
     }
 
     public Boolean isNacional(){
-        if (this.categoria.equals("Nacional")){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return(this.categoria.equals("Nacional"));
     }
 }
