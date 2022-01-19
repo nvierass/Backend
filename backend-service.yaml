@@ -12,6 +12,4 @@ spec:
      port: 32000
      targetPort: 32000
      nodePort: 30000
-  type: LoadBalancer
-  externalIPs:
-  - 167.172.138.64
+     
