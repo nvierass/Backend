@@ -30,6 +30,7 @@ public class ProductoService {
         productoRepository.deleteAllProductos();
         return "Se han eliminado todos los productos";
     }
+    //Miercoles enero 2022
     @GetMapping("/productos/{id}")
     public Producto getProducto(@PathVariable int id){
         return productoRepository.getProductoById(id);
